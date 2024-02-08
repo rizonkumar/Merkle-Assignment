@@ -43,11 +43,16 @@ const App = () => {
       <TopNavBar
         toggleSidebar={() => setIsSidebarExpanded(!isSidebarExpanded)}
       />
-      <SideNavBar isExpanded={isSidebarExpanded} />
-      <RouterProvider router={router}>
-        <StatusBar />
-        <Dropdown />
-      </RouterProvider>
+      <div className="flex flex-grow">
+        <SideNavBar isExpanded={isSidebarExpanded} />
+        <div className="flex-grow">
+          <RouterProvider router={router}>
+            <StatusBar />
+            {/* Removed Dropdown from here if it's not meant to be part of the main content */}
+          </RouterProvider>
+        </div>
+      </div>
+      {/* Ensure Footer is the last element within the flex-col container */}
       <Footer />
     </div>
   );
