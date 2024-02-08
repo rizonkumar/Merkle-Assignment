@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Dropdown from "./Dropdown";
 import UserProfile from "./UserProfile";
 import { LOGO_URL } from "../../utils/constants";
+import { Bars3Icon } from "@heroicons/react/24/outline"; // Correct import for Heroicons v2
 
-const TopNavBar = ({ projects = [], onProjectSelect }) => {
-  const [selectedDashboard, setSelectedDashboard] = useState("");
+const TopNavBar = ({ projects = [], onProjectSelect, toggleSidebar }) => {
+  const [selectedDashboard, setSelectedDashboard] = React.useState("");
 
   const dropdownOptions = [
     { label: "Select Dashboard", value: "" }, // Default option
@@ -19,7 +20,13 @@ const TopNavBar = ({ projects = [], onProjectSelect }) => {
   return (
     <div className="bg-gray-800 text-white flex justify-between items-center p-4">
       <div className="flex items-center">
+        {/* Hamburger Menu Icon */}
+        <Bars3Icon
+          className="h-8 w-8 cursor-pointer mr-4"
+          onClick={toggleSidebar}
+        />
         <img src={LOGO_URL} alt="Logo" className="h-8 mr-4" />
+        {/* Dropdown Menu */}
         <Dropdown
           items={dropdownOptions}
           onSelect={(selectedValue) => {
@@ -38,6 +45,7 @@ const TopNavBar = ({ projects = [], onProjectSelect }) => {
           placeholder="Select Dashboard"
         />
       </div>
+      {/* User Profile */}
       <UserProfile user={{ name: "Rizon Kumar" }} />
     </div>
   );

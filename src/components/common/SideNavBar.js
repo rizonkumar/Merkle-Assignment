@@ -1,34 +1,24 @@
-import React, { useState } from "react";
-import { AiFillHome, AiFillProject } from "react-icons/ai"; // Import specific icons
+import React from "react";
+import { AiFillHome, AiFillProject } from "react-icons/ai"; // Home and Project icons
 
-const SideNavBar = () => {
-  // State to manage whether the sidebar is expanded or not
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  // Function to toggle the sidebar's expanded state
-  const toggleSidebar = () => setIsExpanded(!isExpanded);
-
+const SideNavBar = ({ isExpanded }) => {
   return (
     <div
       className={`transition-width duration-300 ${
-        isExpanded ? "w-64" : "w-20"
-      } bg-gray-800 h-full text-white flex flex-col`}
-      onMouseEnter={() => setIsExpanded(true)}
-      onMouseLeave={() => setIsExpanded(false)}
+        isExpanded ? "w-64" : "w-16"
+      } bg-gray-800 h-full text-white flex flex-col items-center justify-between`}
     >
-      <button onClick={toggleSidebar} className="p-5 hover:bg-gray-700">
-        {/* Toggle Button */}
-        {isExpanded ? "Collapse" : "Expand"}
-      </button>
-      <div className="flex flex-col space-y-4 p-5">
+      <div className="mt-2 flex items-center w-full">
         {/* Home Dashboard Icon */}
-        <AiFillHome className="cursor-pointer hover:text-gray-300" size={24} />
-        {/* Projects Dashboard Icon */}
-        <AiFillProject
-          className="cursor-pointer hover:text-gray-300"
-          size={24}
-        />
+        <AiFillHome className="h-8 w-8" />
+        {isExpanded && <span className="ml-2">Home</span>}
       </div>
+      {/* Projects Dashboard Icon */}
+      <div className="mt-2 flex items-center w-full">
+        <AiFillProject className="h-8 w-8" />
+        {isExpanded && <span className="ml-2">Projects</span>}
+      </div>
+      {/* ... Additional icons and labels ... */}
     </div>
   );
 };
