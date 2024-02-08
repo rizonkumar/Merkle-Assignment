@@ -3,10 +3,11 @@ import Dropdown from "./Dropdown";
 import UserProfile from "./UserProfile";
 import { LOGO_URL } from "../../utils/constants";
 
-const TopNavBar = ({ projects = [], onProjectSelect, renderDashboard }) => {
-  const [selectedDashboard, setSelectedDashboard] = useState(null);
+const TopNavBar = ({ projects = [], onProjectSelect }) => {
+  const [selectedDashboard, setSelectedDashboard] = useState("");
 
   const dropdownOptions = [
+    { label: "Select Dashboard", value: "" }, // Default option
     ...projects.map((project) => ({
       label: project.label,
       value: project.value,
@@ -22,11 +23,16 @@ const TopNavBar = ({ projects = [], onProjectSelect, renderDashboard }) => {
         <Dropdown
           items={dropdownOptions}
           onSelect={(selectedValue) => {
+            setSelectedDashboard(selectedValue); // Always update the selected dashboard
             if (selectedValue === "tabular" || selectedValue === "graphical") {
-              setSelectedDashboard(selectedValue);
-            } else {
+              // If one of these special views is selected, handle accordingly
+              // This example assumes you're handling these cases elsewhere or via routing
+            } else if (
+              onProjectSelect &&
+              typeof onProjectSelect === "function"
+            ) {
+              // Ensure onProjectSelect is a function before calling
               onProjectSelect(selectedValue);
-              setSelectedDashboard(null);
             }
           }}
           placeholder="Select Dashboard"
