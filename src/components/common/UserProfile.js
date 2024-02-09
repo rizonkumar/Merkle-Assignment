@@ -8,7 +8,7 @@ const UserProfile = ({ user }) => {
       {/* Add margin-left to create space between the dropdown and user profile */}
       <UserIcon className="h-6 w-6 text-white mr-2" />{" "}
       {/* User icon with margin-right */}
-      <span>{user.name}</span>
+      <span>{user?.name}</span>
     </div>
   );
 };

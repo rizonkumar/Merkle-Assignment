@@ -1,4 +1,3 @@
-// TabularView.js
 import React from "react";
 import { DUMMY_DATA_Tabular } from "../../utils/constants";
 
@@ -22,11 +21,11 @@ const TabularView = () => {
               <tbody>
                 {project.tasks.map((task) => (
                   <tr key={task.id} className="border-b">
-                    <td className="px-4 py-2">{task.name}</td>
-                    <td className="px-4 py-2">{task.start_date}</td>
-                    <td className="px-4 py-2">{task.end_date}</td>
-                    <td className="px-4 py-2">{task.assigned_to}</td>
-                    <td className="px-4 py-2">{task.status}</td>
+                    <td className="px-4 py-2">{task?.name}</td>
+                    <td className="px-4 py-2">{task?.start_date}</td>
+                    <td className="px-4 py-2">{task?.end_date}</td>
+                    <td className="px-4 py-2">{task?.assigned_to}</td>
+                    <td className="px-4 py-2">{task?.status}</td>
                   </tr>
                 ))}
               </tbody>

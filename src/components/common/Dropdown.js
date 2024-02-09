@@ -9,8 +9,8 @@ const Dropdown = ({ items = [], onSelect, placeholder }) => {
       >
         <option value="">{placeholder}</option>
         {items.map((item) => (
-          <option key={item.value} value={item.value}>
-            {item.label}
+          <option key={item?.value} value={item?.value}>
+            {item?.label}
           </option>
         ))}
       </select>
