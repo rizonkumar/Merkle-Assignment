@@ -1,14 +1,8 @@
 import React from "react";
-import TabularView from "../dashboard/TabularView";
-import GraphicalView from "../dashboard/GraphicalView";
 
-const MainContainer = () => {
-  return (
-    <div>
-      <TabularView />
-      <GraphicalView />
-    </div>
-  );
+const MainContainer = ({ children }) => {
+  console.log(children);
+  return <div className="p-4">{children}</div>;
 };
 
 export default MainContainer;

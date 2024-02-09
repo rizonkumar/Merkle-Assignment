@@ -1,50 +1,31 @@
 import React, { useState } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import TopNavBar from "./components/common/TopNavBar";
 import SideNavBar from "./components/common/SideNavBar";
-import MainContainer from "./components/common/MainContainer";
-import TabularView from "./components/dashboard/TabularView";
-import GraphicalView from "./components/dashboard/GraphicalView";
 import Footer from "./components/common/Footer";
 import Body from "./components/Body";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Body />,
-    children: [
-      {
-        path: "tabular",
-        element: (
-          <MainContainer>
-            <TabularView />
-          </MainContainer>
-        ),
-      },
-      {
-        path: "graphical",
-        element: (
-          <MainContainer>
-            <GraphicalView />
-          </MainContainer>
-        ),
-      },
-    ],
-  },
-]);
-
 const App = () => {
+  const [currentView, setCurrentView] = useState("tabular");
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
 
+  const handleToggleSidebar = () => {
+    setIsSidebarExpanded(!isSidebarExpanded);
+  };
+
+  const handleSelectView = (view) => {
+    setCurrentView(view); // This function updates the current view
+  };
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-blue-100">
       <TopNavBar
-        toggleSidebar={() => setIsSidebarExpanded(!isSidebarExpanded)}
+        toggleSidebar={handleToggleSidebar}
         isSidebarExpanded={isSidebarExpanded}
+        onSelectView={handleSelectView}
       />
       <div className="flex flex-grow">
         <SideNavBar isExpanded={isSidebarExpanded} />
-        {/* Main content goes here. */}
+        <Body currentView={currentView} />
       </div>
       <Footer />
     </div>
