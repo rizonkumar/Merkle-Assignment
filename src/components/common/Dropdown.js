@@ -1,20 +1,71 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Select from "react-select"; // Assuming you're using react-select
 
-const Dropdown = ({ items = [], onSelect, placeholder }) => {
+const Dropdown = ({
+  onSelect,
+  placeholder,
+  isMulti = false,
+  searchable = true,
+  apiURL,
+  width,
+  height,
+  border,
+  optionTextColor,
+}) => {
+  const [options, setOptions] = useState([]);
+  const [selectedOption, setSelectedOption] = useState(isMulti ? [] : "");
+
+  // Fetch data from API if URL is provided
+  useEffect(() => {
+    if (apiURL) {
+      fetch(apiURL)
+        .then((response) => response.json())
+        .then((data) => {
+          const formattedOptions = data.results.map((item) => ({
+            value: item.name,
+            label: item.name,
+          }));
+          setOptions(formattedOptions);
+        })
+        .catch((error) => console.error("Fetching error: ", error));
+    }
+  }, [apiURL]);
+
+  const handleChange = (selected) => {
+    setSelectedOption(selected);
+    onSelect(selected);
+  };
+
   return (
-    <div className="ml-auto">
-      <select
-        onChange={(e) => onSelect(e.target.value)}
-        className="bg-gray-700 text-white h-10 px-4 border border-gray-600 rounded shadow"
-      >
-        <option value="">{placeholder}</option>
-        {items.map((item) => (
-          <option key={item?.value} value={item?.value}>
-            {item?.label}
-          </option>
-        ))}
-      </select>
-    </div>
+    <Select
+      value={selectedOption}
+      onChange={handleChange}
+      options={options}
+      isMulti={isMulti}
+      isSearchable={searchable}
+      placeholder={placeholder}
+      styles={{
+        control: (base) => ({
+          ...base,
+          width,
+          minHeight: height,
+          borderColor: border,
+        }),
+        option: (base, state) => ({
+          ...base,
+          color: state.isFocused ? "white" : optionTextColor, // Change color on focus
+          backgroundColor: state.isFocused ? "blue" : "white", // Change background color on focus
+        }),
+        singleValue: (base) => ({
+          ...base,
+          color: optionTextColor,
+        }),
+        input: (base) => ({
+          ...base,
+          color: optionTextColor,
+        }),
+      }}
+    />
   );
 };
 

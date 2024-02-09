@@ -13,7 +13,7 @@ const App = () => {
   };
 
   const handleSelectView = (view) => {
-    setCurrentView(view); // This function updates the current view
+    setCurrentView(view);
   };
 
   return (
