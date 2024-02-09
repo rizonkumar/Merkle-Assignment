@@ -6,7 +6,7 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 
 const TopNavBar = ({ toggleSidebar }) => {
   return (
-    <div className="bg-gray-800 text-white flex justify-between items-center p-4">
+    <div className="bg-blue-900 text-white flex justify-between items-center p-4">
       <div className="flex items-center">
         <Bars3Icon className="h-8 w-8 cursor-pointer" onClick={toggleSidebar} />
         <img src={LOGO_URL} alt="Logo" className="h-8 ml-4 " />

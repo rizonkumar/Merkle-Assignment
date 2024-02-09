@@ -6,7 +6,7 @@ const SideNavBar = ({ isExpanded }) => {
     <div
       className={`transition-all duration-300 ease-in-out ${
         isExpanded ? "w-64" : "w-16"
-      } bg-gray-800 h-full text-white flex flex-col items-center`}
+      } bg-blue-900 h-full text-white flex flex-col items-center`}
     >
       {/* Icon and Label Container */}
       <div className="mt-2 space-y-2">

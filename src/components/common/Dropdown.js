@@ -15,7 +15,6 @@ const Dropdown = ({
   const [options, setOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(isMulti ? [] : "");
 
-  // Fetch data from API if URL is provided
   useEffect(() => {
     if (apiURL) {
       fetch(apiURL)
@@ -54,7 +53,7 @@ const Dropdown = ({
         option: (base, state) => ({
           ...base,
           color: state.isFocused ? "white" : optionTextColor, // Change color on focus
-          backgroundColor: state.isFocused ? "blue" : "white", // Change background color on focus
+          backgroundColor: state.isFocused ? "#FDB913" : "white", // Change background color on focus
         }),
         singleValue: (base) => ({
           ...base,
