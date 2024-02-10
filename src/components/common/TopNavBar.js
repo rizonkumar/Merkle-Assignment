@@ -11,7 +11,7 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
     label: pokemon.name,
   }));
 
-  console.log(dropdownOptions); // 10 array i can see which is fine
+  console.log(dropdownOptions);
 
   return (
     <div className="bg-blue-900 text-white flex justify-between items-center p-4">
@@ -22,7 +22,7 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
       <div className="flex items-center">
         <Dropdown
           items={dropdownOptions}
-          onSelect={(selected) => onSelectView(selected.map((s) => s.value))} // Pass only the values
+          onSelect={(selected) => onSelectView(selected.map((s) => s.value))}
           placeholder="Select Pokémon"
           isMulti={true}
           searchable={true}

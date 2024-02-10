@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./utils/chartSetup";
 import TopNavBar from "./components/common/TopNavBar";
 import SideNavBar from "./components/common/SideNavBar";
 import Footer from "./components/common/Footer";
@@ -16,8 +17,12 @@ const App = () => {
 
   const handleSelectView = (selectedNames) => {
     // selectedNames is expected to be an array of Pokémon names
-    setCurrentView("tabular");
+    // setCurrentView("tabular");
     setSelectedPokemonNames(selectedNames);
+  };
+
+  const toggleView = () => {
+    setCurrentView(currentView === "tabular" ? "graphical" : "tabular");
   };
 
   return (
@@ -32,6 +37,7 @@ const App = () => {
         <Body
           currentView={currentView}
           selectedPokemonNames={selectedPokemonNames}
+          onToggleView={toggleView}
         />
       </div>
       <Footer />

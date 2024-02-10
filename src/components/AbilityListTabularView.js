@@ -11,7 +11,7 @@ const AbilityListTabularView = ({ pokemonName }) => {
       <tr>
         <td colSpan="3">Pokemon not found</td>
       </tr>
-    ); // Table row for missing data
+    );
   }
 
   return (
