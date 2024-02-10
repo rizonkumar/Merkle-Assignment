@@ -6,7 +6,6 @@ import Footer from "./components/common/Footer";
 import Body from "./components/Body";
 
 const App = () => {
-  // console.log("Selected from dropdown:", selected);
   const [currentView, setCurrentView] = useState("tabular");
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
   const [selectedPokemonNames, setSelectedPokemonNames] = useState([]);
@@ -16,8 +15,6 @@ const App = () => {
   };
 
   const handleSelectView = (selectedNames) => {
-    // selectedNames is expected to be an array of Pokémon names
-    // setCurrentView("tabular");
     setSelectedPokemonNames(selectedNames);
   };
 
@@ -26,19 +23,25 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-100">
       <TopNavBar
         toggleSidebar={handleToggleSidebar}
         isSidebarExpanded={isSidebarExpanded}
         onSelectView={handleSelectView}
       />
-      <div className="flex flex-grow">
+      <div className="flex flex-1 pt-16">
         <SideNavBar isExpanded={isSidebarExpanded} />
-        <Body
-          currentView={currentView}
-          selectedPokemonNames={selectedPokemonNames}
-          onToggleView={toggleView}
-        />
+        <main
+          className={`flex-1 ${
+            isSidebarExpanded ? "ml-64" : "ml-16"
+          } transition-all duration-300 ease-in-out`}
+        >
+          <Body
+            currentView={currentView}
+            selectedPokemonNames={selectedPokemonNames}
+            onToggleView={toggleView}
+          />
+        </main>
       </div>
       <Footer />
     </div>

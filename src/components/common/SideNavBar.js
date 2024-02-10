@@ -4,7 +4,7 @@ import { AiFillHome, AiFillProject } from "react-icons/ai"; // Home and Project 
 const SideNavBar = ({ isExpanded }) => {
   return (
     <div
-      className={`transition-all duration-300 ease-in-out ${
+      className={`fixed transition-all duration-300 ease-in-out ${
         isExpanded ? "w-64" : "w-16"
       } bg-blue-900 h-full text-white flex flex-col items-center`}
     >

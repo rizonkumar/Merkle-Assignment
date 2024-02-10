@@ -1,3 +1,4 @@
+// TopNavBar.js
 import React from "react";
 import Dropdown from "./Dropdown";
 import UserProfile from "./UserProfile";
@@ -11,14 +12,13 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
     label: pokemon.name,
   }));
 
-  console.log(dropdownOptions);
-
   return (
-    <div className="bg-blue-900 text-white flex justify-between items-center p-4">
-      <div className="flex items-center">
-        <Bars3Icon className="h-8 w-8 cursor-pointer" onClick={toggleSidebar} />
-        <img src={LOGO_URL} alt="Logo" className="h-8 ml-4 " />
-      </div>
+    <div className="fixed w-full bg-blue-900 text-white flex justify-between items-center p-4 z-40">
+      <Bars3Icon
+        className="h-8 w-8 cursor-pointer text-white"
+        onClick={toggleSidebar}
+      />
+      <img src={LOGO_URL} alt="Logo" className="h-12 w-auto ml-4" />
       <div className="flex items-center">
         <Dropdown
           items={dropdownOptions}
@@ -26,10 +26,6 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
           placeholder="Select Pokémon"
           isMulti={true}
           searchable={true}
-          width="300px"
-          height="40px"
-          optionTextColor="black"
-          border="1px solid #ccc"
         />
         <UserProfile user={{ name: "Rizon Kumar" }} />
       </div>

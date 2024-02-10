@@ -1,22 +1,34 @@
+// Dropdown.js
 import React, { useState } from "react";
 import Select from "react-select";
 
-const Dropdown = ({
-  items,
-  onSelect,
-  placeholder,
-  isMulti,
-  searchable,
-  width,
-  height,
-  border,
-  optionTextColor,
-}) => {
+const Dropdown = ({ items, onSelect, placeholder, isMulti, searchable }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleChange = (selected) => {
     setSelectedOption(selected);
     onSelect(selected || []);
+  };
+
+  const customStyles = {
+    control: (styles) => ({
+      ...styles,
+      backgroundColor: "white",
+      color: "black",
+      borderColor: "black",
+      boxShadow: "none",
+      "&:hover": {
+        borderColor: "black",
+      },
+    }),
+    option: (styles, { isFocused, isSelected }) => {
+      return {
+        ...styles,
+        backgroundColor: isSelected ? "blue" : isFocused ? "lightblue" : null,
+        color: "black",
+      };
+    },
+    // Add other custom styles as needed
   };
 
   return (
@@ -27,27 +39,7 @@ const Dropdown = ({
       isMulti={isMulti}
       isSearchable={searchable}
       placeholder={placeholder}
-      styles={{
-        control: (base) => ({
-          ...base,
-          width: width,
-          minHeight: height,
-          borderColor: border,
-        }),
-        option: (base, state) => ({
-          ...base,
-          color: state.isFocused ? "white" : optionTextColor,
-          backgroundColor: state.isFocused ? "#FDB913" : "white",
-        }),
-        singleValue: (base) => ({
-          ...base,
-          color: optionTextColor,
-        }),
-        input: (base) => ({
-          ...base,
-          color: optionTextColor,
-        }),
-      }}
+      styles={customStyles}
     />
   );
 };

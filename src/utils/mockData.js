@@ -22,7 +22,7 @@ export const mockPokemonData = [
   {
     name: "Charmeleon",
     abilities: ["Blaze", "Solar Power"],
-    power: 405,
+    power: 425,
   },
   {
     name: "Charizard",
