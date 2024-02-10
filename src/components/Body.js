@@ -1,14 +1,17 @@
 import React from "react";
-import MainContainer from "./common/MainContainer";
 import TabularView from "./dashboard/TabularView";
 import GraphicalView from "./dashboard/GraphicalView";
-// import { DUMMY_DATA_GRAPHICAL } from "../utils/constants";
 
-const Body = ({ currentView }) => {
+const Body = ({ currentView, selectedPokemonNames }) => {
   return (
-    <MainContainer>
-      {currentView === "tabular" ? <TabularView /> : <GraphicalView />}
-    </MainContainer>
+    <div className="flex-grow">
+      {currentView === "tabular" && (
+        <TabularView selectedPokemonNames={selectedPokemonNames} />
+      )}
+      {currentView === "graphical" && (
+        <GraphicalView selectedPokemonNames={selectedPokemonNames} />
+      )}
+    </div>
   );
 };
 

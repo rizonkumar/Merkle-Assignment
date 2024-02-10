@@ -5,15 +5,19 @@ import Footer from "./components/common/Footer";
 import Body from "./components/Body";
 
 const App = () => {
+  // console.log("Selected from dropdown:", selected);
   const [currentView, setCurrentView] = useState("tabular");
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
+  const [selectedPokemonNames, setSelectedPokemonNames] = useState([]);
 
   const handleToggleSidebar = () => {
     setIsSidebarExpanded(!isSidebarExpanded);
   };
 
-  const handleSelectView = (view) => {
-    setCurrentView(view);
+  const handleSelectView = (selectedNames) => {
+    // selectedNames is expected to be an array of Pokémon names
+    setCurrentView("tabular");
+    setSelectedPokemonNames(selectedNames);
   };
 
   return (
@@ -25,7 +29,10 @@ const App = () => {
       />
       <div className="flex flex-grow">
         <SideNavBar isExpanded={isSidebarExpanded} />
-        <Body currentView={currentView} />
+        <Body
+          currentView={currentView}
+          selectedPokemonNames={selectedPokemonNames}
+        />
       </div>
       <Footer />
     </div>
