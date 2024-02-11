@@ -30,15 +30,17 @@ const Dropdown = ({ items, onSelect, placeholder, isMulti, searchable }) => {
   };
 
   return (
-    <Select
-      value={selectedOption}
-      onChange={handleChange}
-      options={items}
-      isMulti={isMulti}
-      isSearchable={searchable}
-      placeholder={placeholder}
-      styles={customStyles}
-    />
+    <div>
+      <Select
+        value={selectedOption}
+        onChange={handleChange}
+        options={items}
+        isMulti={isMulti}
+        isSearchable={searchable}
+        placeholder={placeholder}
+        styles={customStyles}
+      />
+    </div>
   );
 };
 
