@@ -18,10 +18,6 @@ const App = () => {
     setSelectedPokemonNames(selectedNames);
   };
 
-  const toggleView = () => {
-    setCurrentView(currentView === "tabular" ? "graphical" : "tabular");
-  };
-
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
       <TopNavBar
@@ -29,8 +25,11 @@ const App = () => {
         isSidebarExpanded={isSidebarExpanded}
         onSelectView={handleSelectView}
       />
-      <div className="flex flex-1 pt-16">
-        <SideNavBar isExpanded={isSidebarExpanded} />
+      <div className="flex flex-1 sm:pt-16 pt-[126px] ">
+        <SideNavBar
+          isExpanded={isSidebarExpanded}
+          setCurrentView={setCurrentView}
+        />
         <main
           className={`flex-1 ${
             isSidebarExpanded ? "ml-64" : "ml-16"
@@ -39,7 +38,6 @@ const App = () => {
           <Body
             currentView={currentView}
             selectedPokemonNames={selectedPokemonNames}
-            onToggleView={toggleView}
           />
         </main>
       </div>

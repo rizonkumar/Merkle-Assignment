@@ -1,4 +1,3 @@
-// Dropdown.js
 import React, { useState } from "react";
 import Select from "react-select";
 
@@ -28,7 +27,6 @@ const Dropdown = ({ items, onSelect, placeholder, isMulti, searchable }) => {
         color: "black",
       };
     },
-    // Add other custom styles as needed
   };
 
   return (

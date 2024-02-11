@@ -4,7 +4,7 @@ const TabularView = ({ selectedPokemonNames = [] }) => {
   console.log("Selected Pokemon Names in Tabular View:", selectedPokemonNames);
 
   if (selectedPokemonNames.length === 0) {
-    return <div className="p-4">No Pokémon selected</div>;
+    return <div className="p-4 text-center">No Pokémon selected</div>;
   }
 
   return (
@@ -12,7 +12,6 @@ const TabularView = ({ selectedPokemonNames = [] }) => {
       <h2 className="text-lg font-bold mb-4">Pokémon Data</h2>
       <div className="overflow-x-auto">
         {" "}
-        {/* Ensure horizontal scrolling if table is wide */}
         <table className="table-auto w-full border-collapse border border-slate-400">
           <thead>
             <tr className="bg-gray-100">

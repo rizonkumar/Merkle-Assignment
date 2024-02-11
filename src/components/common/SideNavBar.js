@@ -1,39 +1,33 @@
 import React from "react";
-import { AiFillHome, AiFillProject } from "react-icons/ai"; // Home and Project icons
+import { BsGraphUp, BsTable } from "react-icons/bs";
 
-const SideNavBar = ({ isExpanded }) => {
+const SideNavBar = ({ isExpanded, setCurrentView }) => {
   return (
     <div
-      className={`fixed transition-all duration-300 ease-in-out ${
-        isExpanded ? "w-64" : "w-16"
-      } bg-blue-900 h-full text-white flex flex-col items-center`}
+      className={` transition-all duration-300 ease-in-out ${
+        isExpanded ? "w-75 pr-5" : "w-25 pr-2"
+      } bg-blue-900 text-white flex flex-col items-center`}
     >
-      {/* Icon and Label Container */}
-      <div className="mt-2 space-y-2">
-        {/* Home Icon and Label */}
+      <div className="mt-2 space-y-4 ml-2 text-xs">
         <div
           className={`flex ${
             isExpanded ? "flex-row" : "flex-col"
-          } items-center justify-center w-full`}
+          } items-center  w-full cursor-pointer`}
+          onClick={() => setCurrentView("tabular")}
         >
-          <AiFillHome className="h-8 w-8" />
-          <span className={`${isExpanded ? "ml-2" : "mt-1"} text-sm`}>
-            Home
-          </span>
+          <BsTable className="h-8 w-10 m-2  mr-2" />
+          <span className={`${isExpanded ? "ml-5" : "mt-4"}`}>Tabular</span>
         </div>
-        {/* Projects Icon and Label */}
         <div
           className={`flex ${
             isExpanded ? "flex-row" : "flex-col"
-          } items-center justify-center w-full`}
+          } items-center  w-full cursor-pointer`}
+          onClick={() => setCurrentView("graphical")}
         >
-          <AiFillProject className="h-8 w-8" />
-          <span className={`${isExpanded ? "ml-2" : "mt-1"} text-sm`}>
-            Projects
-          </span>
+          <BsGraphUp className="h-8 w-10 m-2 mr-2" />
+          <span className={`${isExpanded ? "ml-5" : "mt-4"} `}>Graphical</span>
         </div>
       </div>
-      {/* ... Additional icons and labels ... */}
     </div>
   );
 };
