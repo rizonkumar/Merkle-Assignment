@@ -1,14 +1,14 @@
 import AbilityListTabularView from "../AbilityListTabularView";
 
 const TabularView = ({ selectedPokemonNames = [] }) => {
-  console.log("Selected Pokemon Names in Tabular View:", selectedPokemonNames);
+  // console.log("Selected Pokemon Names in Tabular View:", selectedPokemonNames);
 
   if (selectedPokemonNames.length === 0) {
     return <div className="p-4 text-center">No Pokémon selected</div>;
   }
 
   return (
-    <div className="p-4">
+    <div className="p-4 text-[10px]">
       <h2 className="text-lg font-bold mb-4">Pokémon Data</h2>
       <div className="overflow-x-auto">
         {" "}

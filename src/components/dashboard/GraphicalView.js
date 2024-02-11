@@ -7,7 +7,7 @@ const GraphicalView = ({ selectedPokemonNames = [] }) => {
   }
 
   return (
-    <div className="p-4">
+    <div className="p-4 flex justify-between flex-col">
       <h2 className="text-lg font-bold mb-4">Pokémon Charts</h2>
       <div className="grid grid-cols-2 gap-6">
         {" "}

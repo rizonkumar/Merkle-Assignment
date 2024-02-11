@@ -32,7 +32,7 @@ const App = () => {
         />
         <main
           className={`flex-1 ${
-            isSidebarExpanded ? "ml-64" : "ml-16"
+            isSidebarExpanded ? " m-0" : "m-0"
           } transition-all duration-300 ease-in-out`}
         >
           <Body
