@@ -6,7 +6,6 @@ import Footer from "./components/common/Footer";
 import Body from "./components/Body";
 
 const App = () => {
-  // console.log("Selected from dropdown:", selected);
   const [currentView, setCurrentView] = useState("tabular");
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
   const [selectedPokemonNames, setSelectedPokemonNames] = useState([]);
@@ -16,29 +15,31 @@ const App = () => {
   };
 
   const handleSelectView = (selectedNames) => {
-    // selectedNames is expected to be an array of Pokémon names
-    // setCurrentView("tabular");
     setSelectedPokemonNames(selectedNames);
   };
 
-  const toggleView = () => {
-    setCurrentView(currentView === "tabular" ? "graphical" : "tabular");
-  };
-
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-100">
       <TopNavBar
         toggleSidebar={handleToggleSidebar}
         isSidebarExpanded={isSidebarExpanded}
         onSelectView={handleSelectView}
       />
-      <div className="flex flex-grow">
-        <SideNavBar isExpanded={isSidebarExpanded} />
-        <Body
-          currentView={currentView}
-          selectedPokemonNames={selectedPokemonNames}
-          onToggleView={toggleView}
+      <div className="flex flex-1 sm:pt-16 pt-[126px] ">
+        <SideNavBar
+          isExpanded={isSidebarExpanded}
+          setCurrentView={setCurrentView}
         />
+        <main
+          className={`flex-1 ${
+            isSidebarExpanded ? "ml-64" : "ml-16"
+          } transition-all duration-300 ease-in-out`}
+        >
+          <Body
+            currentView={currentView}
+            selectedPokemonNames={selectedPokemonNames}
+          />
+        </main>
       </div>
       <Footer />
     </div>
