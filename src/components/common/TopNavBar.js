@@ -12,11 +12,11 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
   }));
 
   return (
-    <div className="xs:block fixed left-0 top-0 z-40 w-full flex-row items-center justify-between bg-blue-900 p-3 text-white sm:flex">
+    <div className="xs:block bg-merkle-blue fixed left-0 top-0 z-40 w-full flex-row items-center justify-between p-3 text-white sm:flex">
       <div className="flex items-center justify-between">
         {" "}
         <Bars3Icon
-          className="h-8 w-8 cursor-pointer text-white"
+          className="ml-3 h-8 w-8 cursor-pointer text-white"
           onClick={toggleSidebar}
         />
         <img

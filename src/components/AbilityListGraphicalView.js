@@ -4,7 +4,8 @@ import mockPokemonData from "../utils/mockData";
 
 const AbilityListGraphicalView = ({ pokemonName }) => {
   const pokemon = mockPokemonData.find((p) => p.name === pokemonName);
-  if (!pokemon) return <p>Pokemon not found</p>;
+  if (!pokemon)
+    return <p className="text-merkle-red-tint">Pokemon not found</p>;
 
   const powerData = {
     labels: ["Power"],
@@ -36,7 +37,9 @@ const AbilityListGraphicalView = ({ pokemonName }) => {
 
   return (
     <div className="mx-auto mb-4 max-w-md px-2 sm:px-4">
-      <h2 className="mb-4 text-center text-xl font-bold">{pokemon.name}</h2>
+      <h2 className="mb-4 text-center text-xl font-bold text-denstu-teal ">
+        {pokemon.name}
+      </h2>
       <div className="flex flex-col items-center gap-4">
         <div className="w-full">
           <Bar

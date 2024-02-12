@@ -22,10 +22,9 @@ const App = () => {
     <div className="flex min-h-screen flex-col bg-gray-100">
       <TopNavBar
         toggleSidebar={handleToggleSidebar}
-        isSidebarExpanded={isSidebarExpanded}
         onSelectView={handleSelectView}
       />
-      <div className="flex relative top-[6.725rem] flex-1 sm:pt-16 sm:top-[0.325rem]">
+      <div className="relative top-[6.725rem] flex flex-1 sm:top-[0.325rem] sm:pt-16">
         <SideNavBar
           isExpanded={isSidebarExpanded}
           setCurrentView={setCurrentView}
@@ -39,7 +38,7 @@ const App = () => {
           />
         </div>
       </div>
-      <Footer className="absolute bottom-0 w-full" />
+      <Footer className="" />
     </div>
   );
 };
