@@ -7,10 +7,11 @@ const GraphicalView = ({ selectedPokemonNames = [] }) => {
   }
 
   return (
-    <div className="p-4 flex justify-between flex-col">
-      <h2 className="text-lg font-bold mb-4">Pokémon Charts</h2>
-      <div className="grid grid-cols-2 gap-6">
-        {" "}
+    <div className="flex flex-col items-center p-4">
+      <h2 className="mb-4 w-full text-center text-lg font-bold">
+        Pokémon Charts
+      </h2>
+      <div className="w-full max-w-[45vw] sm:grid sm:grid-cols-2 sm:gap-4">
         {selectedPokemonNames.map((pokemonName) => (
           <AbilityListGraphicalView
             key={pokemonName}

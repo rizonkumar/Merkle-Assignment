@@ -8,11 +8,13 @@ const TabularView = ({ selectedPokemonNames = [] }) => {
   }
 
   return (
-    <div className="p-4 text-[10px]">
-      <h2 className="text-lg font-bold mb-4">Pokémon Data</h2>
+    <div className="p-4 text-center">
+      <h2 className="relative mb-4 text-center text-lg font-bold">
+        Pokémon Data
+      </h2>
       <div className="overflow-x-auto">
         {" "}
-        <table className="table-auto w-full border-collapse border border-slate-400">
+        <table className="w-full table-auto border-collapse border border-slate-400">
           <thead>
             <tr className="bg-gray-100">
               <th className="border border-slate-300 p-2">Name</th>

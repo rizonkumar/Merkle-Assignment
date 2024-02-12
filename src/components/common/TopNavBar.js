@@ -12,7 +12,7 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
   }));
 
   return (
-    <div className="fixed flex-row w-full bg-blue-900 text-white sm:flex xs:block justify-between items-center p-4 z-40">
+    <div className="xs:block fixed left-0 top-0 z-40 w-full flex-row items-center justify-between bg-blue-900 p-3 text-white sm:flex">
       <div className="flex items-center justify-between">
         {" "}
         <Bars3Icon
@@ -22,14 +22,14 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
         <img
           src={LOGO_URL}
           alt="Logo"
-          className="h-12 w-auto ml-7 rounded-sm"
+          className="ml-7 h-12 w-auto rounded-sm"
         />
         <span className="flex items-center sm:hidden  ">
           <UserProfile user={{ name: "Rizon Kumar" }} />
         </span>
       </div>
 
-      <div className="sm:flex mt-2 sm:m-0">
+      <div className="mt-2 sm:m-0 sm:flex">
         <Dropdown
           items={dropdownOptions}
           onSelect={(selected) => onSelectView(selected.map((s) => s.value))}
@@ -37,7 +37,7 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
           isMulti={true}
           searchable={true}
         />
-        <span className="sm:flex items-center hidden ">
+        <span className="hidden items-center sm:flex ">
           <UserProfile user={{ name: "Rizon Kumar" }} />
         </span>
       </div>

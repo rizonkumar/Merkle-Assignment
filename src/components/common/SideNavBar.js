@@ -5,26 +5,26 @@ const SideNavBar = ({ isExpanded, setCurrentView }) => {
   return (
     <div
       className={` transition-all duration-300 ease-in-out ${
-        isExpanded ? "w-75 pr-5" : "w-25 pr-2"
-      } bg-blue-900 text-white flex flex-col items-center`}
+        isExpanded ? " pr-5" : " pr-2"
+      } flex flex-col items-center bg-blue-900 text-white`}
     >
-      <div className="mt-2 space-y-4 ml-2 text-xs">
+      <div className="ml-2 mt-2 space-y-4 text-xs">
         <div
           className={`flex ${
             isExpanded ? "flex-row" : "flex-col"
-          } items-center  w-full cursor-pointer`}
+          } w-full  cursor-pointer items-center`}
           onClick={() => setCurrentView("tabular")}
         >
-          <BsTable className="h-8 w-10 m-2  mr-2" />
+          <BsTable className="m-2 mr-2 h-8  w-10" />
           <span className={`${isExpanded ? "ml-5" : "mt-4"}`}>Tabular</span>
         </div>
         <div
           className={`flex ${
             isExpanded ? "flex-row" : "flex-col"
-          } items-center  w-full cursor-pointer`}
+          } w-full  cursor-pointer items-center`}
           onClick={() => setCurrentView("graphical")}
         >
-          <BsGraphUp className="h-8 w-10 m-2 mr-2" />
+          <BsGraphUp className="m-2 mr-2 h-8 w-10" />
           <span className={`${isExpanded ? "ml-5" : "mt-4"} `}>Graphical</span>
         </div>
       </div>

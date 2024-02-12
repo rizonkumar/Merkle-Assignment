@@ -19,29 +19,27 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
+    <div className="flex min-h-screen flex-col bg-gray-100">
       <TopNavBar
         toggleSidebar={handleToggleSidebar}
         isSidebarExpanded={isSidebarExpanded}
         onSelectView={handleSelectView}
       />
-      <div className="flex flex-1 sm:pt-16 pt-[126px] ">
+      <div className="flex relative top-[6.725rem] flex-1 sm:pt-16 sm:top-[0.325rem]">
         <SideNavBar
           isExpanded={isSidebarExpanded}
           setCurrentView={setCurrentView}
         />
-        <main
-          className={`flex-1 ${
-            isSidebarExpanded ? " m-0" : "m-0"
-          } transition-all duration-300 ease-in-out`}
+        <div
+          className={`${isSidebarExpanded ? "pl-75" : "pl-25"} flex-1 transition-all duration-300 ease-in-out`}
         >
           <Body
             currentView={currentView}
             selectedPokemonNames={selectedPokemonNames}
           />
-        </main>
+        </div>
       </div>
-      <Footer />
+      <Footer className="absolute bottom-0 w-full" />
     </div>
   );
 };

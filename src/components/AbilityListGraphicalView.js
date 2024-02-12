@@ -27,7 +27,7 @@ const AbilityListGraphicalView = ({ pokemonName }) => {
         data: pokemon.abilities.map(() => 1),
         backgroundColor: pokemon.abilities.map(
           (_, index) =>
-            `hsl(${(index / pokemon.abilities.length) * 360}, 70%, 70%)`
+            `hsl(${(index / pokemon.abilities.length) * 360}, 70%, 70%)`,
         ),
         hoverOffset: 4,
       },
@@ -35,14 +35,20 @@ const AbilityListGraphicalView = ({ pokemonName }) => {
   };
 
   return (
-    <div className="mb-8">
-      <h2 className="text-center text-xl font-bold mb-4">{pokemon.name}</h2>
+    <div className="mx-auto mb-4 max-w-md px-2 sm:px-4">
+      <h2 className="mb-4 text-center text-xl font-bold">{pokemon.name}</h2>
       <div className="flex flex-col items-center gap-4">
-        <div className="w-full sm:w-96">
-          <Bar data={powerData} options={{ indexAxis: "y" }} />
+        <div className="w-full">
+          <Bar
+            data={powerData}
+            options={{ indexAxis: "y", maintainAspectRatio: true }}
+          />
         </div>
-        <div className="w-full sm:w-96">
-          <Doughnut data={abilitiesData} />
+        <div className="w-full">
+          <Doughnut
+            data={abilitiesData}
+            options={{ maintainAspectRatio: true }}
+          />
         </div>
       </div>
     </div>
