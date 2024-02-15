@@ -4,7 +4,7 @@ import "../../custom-styles.css";
 
 const UserProfile = ({ user }) => {
   return (
-    <div className="d-flex align-items-center ms-4">
+    <div className="col-6 d-flex align-items-center">
       <UserIcon
         className="h-6 w-6 text-white me-2"
         style={{ height: "24px", width: "24px" }}

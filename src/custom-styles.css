@@ -66,3 +66,14 @@
 .text-dentsu-red {
     color: #F23A1D !important;
 }
+
+.main-content {
+    margin-top: 80px !important;
+    height: 441px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

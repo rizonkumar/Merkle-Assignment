@@ -21,23 +21,27 @@ const App = () => {
   };
 
   return (
-    <div className="d-flex flex-column min-vh-100 bg-light">
+    <div className="container-fluid bg-light">
       <TopNavBar
         toggleSidebar={handleToggleSidebar}
         onSelectView={handleSelectView}
       />
-      <div className="container-fluid d-flex flex-grow-1 mt-5 pt-5">
-        <SideNavBar
-          isExpanded={isSidebarExpanded}
-          setCurrentView={setCurrentView}
-        />
-        <div
-          className={`flex-grow-1 transition-all ${isSidebarExpanded ? "ps-5" : "ps-2"}`}
-        >
-          <Body
-            currentView={currentView}
-            selectedPokemonNames={selectedPokemonNames}
-          />
+      <div className="row">
+        <div className="col-12 main-content">
+          <div className="row h-100">
+            <SideNavBar
+              isExpanded={isSidebarExpanded}
+              setCurrentView={setCurrentView}
+            />
+            <div
+              className={`col-12 col-lg-2 flex-grow-1 transition-all ${isSidebarExpanded ? "ps-5" : "ps-2"}`}
+            >
+              <Body
+                currentView={currentView}
+                selectedPokemonNames={selectedPokemonNames}
+              />
+            </div>
+          </div>
         </div>
       </div>
       <Footer />

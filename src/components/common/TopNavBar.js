@@ -13,11 +13,11 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
   }));
 
   return (
-    <div className="d-flex fixed-top align-items-center justify-content-between w-full bg-merkle-blue p-3 text-white">
-      <div className="d-flex align-items-center">
+    <div className="row align-items-center fixed-top w-full bg-merkle-blue p-3 text-white">
+      <div className="col-8">
         <Bars3Icon
           style={{ height: "32px", width: "32px", cursor: "pointer" }}
-          className="ms-3 text-white"
+          className="me-3 text-white"
           onClick={toggleSidebar}
         />
         <img
@@ -27,15 +27,17 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
           style={{ height: "48px", maxWidth: "120px" }}
         />
       </div>
-      <div className="d-flex align-items-center mt-2">
-        <Dropdown
-          items={dropdownOptions}
-          onSelect={(selected) => onSelectView(selected.map((s) => s.value))}
-          placeholder="Select Pokémon"
-          isMulti={true}
-          searchable={true}
-        />
-        <UserProfile user={{ name: "Rizon Kumar" }} />
+      <div className="col-4">
+        <div className="row">
+          <Dropdown
+            items={dropdownOptions}
+            onSelect={(selected) => onSelectView(selected.map((s) => s.value))}
+            placeholder="Select Pokémon"
+            isMulti={true}
+            searchable={true}
+          />
+          <UserProfile user={{ name: "Rizon Kumar" }} />
+        </div>
       </div>
     </div>
   );
