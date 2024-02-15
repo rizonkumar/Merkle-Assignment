@@ -24,7 +24,7 @@ const Dropdown = ({ items, onSelect, placeholder, isMulti, searchable }) => {
     option: (styles, { isFocused, isSelected }) => ({
       ...styles,
       backgroundColor: isSelected ? "#243c5a" : isFocused ? "#41547D" : null,
-      color: "white",
+      color: "black",
     }),
   };
 
