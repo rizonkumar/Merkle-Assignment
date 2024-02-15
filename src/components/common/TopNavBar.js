@@ -26,7 +26,6 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
           className="ms-7"
           style={{ height: "48px", maxWidth: "120px" }}
         />
-        <UserProfile user={{ name: "Rizon Kumar" }} />
       </div>
       <div className="d-flex align-items-center mt-2">
         <Dropdown
