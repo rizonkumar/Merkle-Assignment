@@ -4,7 +4,7 @@ import AbilityListGraphicalView from "../AbilityListGraphicalView";
 const GraphicalView = ({ selectedPokemonNames = [] }) => {
   if (selectedPokemonNames.length === 0) {
     return (
-      <h2 className="text-denstu-red p-4 text-center text-lg font-bold">
+      <h2 className="p-4 text-center text-lg font-bold text-denstu-red">
         No Pokémon selected
       </h2>
     );
@@ -12,7 +12,7 @@ const GraphicalView = ({ selectedPokemonNames = [] }) => {
 
   return (
     <div className="flex flex-col items-center p-4">
-      <h2 className="text-merkle-red-tint mb-4 w-full text-center text-lg font-bold">
+      <h2 className="mb-4 w-full text-center text-lg font-bold text-merkle-red-tint">
         Pokémon Charts
       </h2>
       <div className="w-full max-w-[45vw] sm:grid sm:grid-cols-2 sm:gap-4">
