@@ -1,6 +1,6 @@
 import React from "react";
 import { UserIcon } from "@heroicons/react/24/outline";
-import "./custom-styles.css";
+import "../../custom-styles.css";
 
 const UserProfile = ({ user }) => {
   return (
