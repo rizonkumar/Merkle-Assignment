@@ -2,27 +2,27 @@ export const mockPokemonData = [
   {
     name: "Bulbasaur",
     abilities: ["Overgrow", "Chlorophyll"],
-    power: 318,
+    power: 320,
+  },
+  {
+    name: "Caterpie",
+    abilities: ["Shield Dust", "Run Away"],
+    power: 195,
   },
   {
     name: "Ivysaur",
     abilities: ["Overgrow", "Chlorophyll"],
+    power: 425,
+  },
+  {
+    name: "Wartortle",
+    abilities: ["Torrent", "Rain Dish"],
     power: 405,
-  },
-  {
-    name: "Venusaur",
-    abilities: ["Overgrow", "Chlorophyll"],
-    power: 525,
-  },
-  {
-    name: "Charmander",
-    abilities: ["Blaze", "Solar Power"],
-    power: 309,
   },
   {
     name: "Charmeleon",
     abilities: ["Blaze", "Solar Power"],
-    power: 425,
+    power: 435,
   },
   {
     name: "Charizard",
@@ -34,20 +34,11 @@ export const mockPokemonData = [
     abilities: ["Torrent", "Rain Dish"],
     power: 314,
   },
-  {
-    name: "Wartortle",
-    abilities: ["Torrent", "Rain Dish"],
-    power: 405,
-  },
+
   {
     name: "Blastoise",
     abilities: ["Torrent", "Rain Dish"],
     power: 530,
-  },
-  {
-    name: "Caterpie",
-    abilities: ["Shield Dust", "Run Away"],
-    power: 195,
   },
 ];
 
