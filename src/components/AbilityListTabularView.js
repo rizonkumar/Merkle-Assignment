@@ -3,32 +3,30 @@ import mockPokemonData from "../utils/mockData";
 
 const AbilityListTabularView = ({ pokemonName }) => {
   const pokemon = mockPokemonData.find(
-    (pokemon) => pokemon.name === pokemonName,
+    (pokemon) => pokemon.name === pokemonName
   );
 
   if (!pokemon) {
     return (
       <tr>
-        <td colSpan="3">Pokemon not found</td>
+        <td colSpan="3" className="text-center">
+          Pokemon not found
+        </td>
       </tr>
     );
   }
 
   return (
-    <tr className="hover:bg-gray-50">
-      {" "}
-      <td className="border border-slate-300 p-2">{pokemon.name}</td>
-      <td className="border border-slate-300 p-2">
-        <ul className="list-inside">
-          {" "}
+    <tr className="table-hover">
+      <td className="border p-2">{pokemon.name}</td>
+      <td className="border p-2">
+        <ul className="list-unstyled">
           {pokemon.abilities.map((ability, index) => (
             <li key={index}>{ability}</li>
           ))}
         </ul>
       </td>
-      <td className="border border-slate-300 p-2 text-center">
-        {pokemon.power}
-      </td>
+      <td className="border p-2 text-center">{pokemon.power}</td>
     </tr>
   );
 };

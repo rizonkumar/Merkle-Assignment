@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
+import "../../custom-styles.css";
 
 const Dropdown = ({ items, onSelect, placeholder, isMulti, searchable }) => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -20,17 +21,15 @@ const Dropdown = ({ items, onSelect, placeholder, isMulti, searchable }) => {
         borderColor: "black",
       },
     }),
-    option: (styles, { isFocused, isSelected }) => {
-      return {
-        ...styles,
-        backgroundColor: isSelected ? "blue" : isFocused ? "lightblue" : null,
-        color: "black",
-      };
-    },
+    option: (styles, { isFocused, isSelected }) => ({
+      ...styles,
+      backgroundColor: isSelected ? "#243c5a" : isFocused ? "#41547D" : null,
+      color: "white",
+    }),
   };
 
   return (
-    <div>
+    <div className="d-flex">
       <Select
         value={selectedOption}
         onChange={handleChange}

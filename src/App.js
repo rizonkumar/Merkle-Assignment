@@ -4,6 +4,8 @@ import TopNavBar from "./components/common/TopNavBar";
 import SideNavBar from "./components/common/SideNavBar";
 import Footer from "./components/common/Footer";
 import Body from "./components/Body";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./custom-styles.css";
 
 const App = () => {
   const [currentView, setCurrentView] = useState("tabular");
@@ -19,18 +21,18 @@ const App = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-gray-100">
+    <div className="d-flex flex-column min-vh-100 bg-light">
       <TopNavBar
         toggleSidebar={handleToggleSidebar}
         onSelectView={handleSelectView}
       />
-      <div className="relative top-[6.725rem] flex flex-1 sm:top-[0.325rem] sm:pt-16">
+      <div className="container-fluid d-flex flex-grow-1 mt-5 pt-5">
         <SideNavBar
           isExpanded={isSidebarExpanded}
           setCurrentView={setCurrentView}
         />
         <div
-          className={`${isSidebarExpanded ? "pl-75" : "pl-25"} flex-1 transition-all duration-300 ease-in-out`}
+          className={`flex-grow-1 transition-all ${isSidebarExpanded ? "ps-5" : "ps-2"}`}
         >
           <Body
             currentView={currentView}
@@ -38,7 +40,7 @@ const App = () => {
           />
         </div>
       </div>
-      <Footer className="" />
+      <Footer />
     </div>
   );
 };

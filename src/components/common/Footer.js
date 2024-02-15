@@ -1,8 +1,9 @@
 import React from "react";
+import "../../custom-styles.css";
 
 const Footer = () => {
   return (
-    <footer className=" bg-merkle-blue p-4 text-center text-white z-10 fixed bottom-0 w-full">
+    <footer className="fixed-bottom bg-merkle-blue py-4 text-center text-white">
       © {new Date().getFullYear()} Merkle | All rights reserved.
     </footer>
   );

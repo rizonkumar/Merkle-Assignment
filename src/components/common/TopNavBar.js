@@ -4,6 +4,7 @@ import UserProfile from "./UserProfile";
 import { LOGO_URL } from "../../utils/constants";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import mockPokemonData from "../../utils/mockData";
+import "../../custom-styles.css";
 
 const TopNavBar = ({ toggleSidebar, onSelectView }) => {
   const dropdownOptions = mockPokemonData.map((pokemon) => ({
@@ -12,24 +13,22 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
   }));
 
   return (
-    <div className="xs:block bg-merkle-blue fixed left-0 top-0 z-40 w-full flex-row items-center justify-between p-3 text-white sm:flex">
-      <div className="flex items-center justify-between">
-        {" "}
+    <div className="d-flex fixed-top align-items-center justify-content-between w-full bg-merkle-blue p-3 text-white">
+      <div className="d-flex align-items-center">
         <Bars3Icon
-          className="ml-3 h-8 w-8 cursor-pointer text-white"
+          style={{ height: "32px", width: "32px", cursor: "pointer" }}
+          className="ms-3 text-white"
           onClick={toggleSidebar}
         />
         <img
           src={LOGO_URL}
           alt="Logo"
-          className="ml-7 h-12 w-auto rounded-sm"
+          className="ms-7"
+          style={{ height: "48px", maxWidth: "120px" }}
         />
-        <span className="flex items-center sm:hidden  ">
-          <UserProfile user={{ name: "Rizon Kumar" }} />
-        </span>
+        <UserProfile user={{ name: "Rizon Kumar" }} />
       </div>
-
-      <div className="mt-2 sm:m-0 sm:flex">
+      <div className="d-flex align-items-center mt-2">
         <Dropdown
           items={dropdownOptions}
           onSelect={(selected) => onSelectView(selected.map((s) => s.value))}
@@ -37,9 +36,7 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
           isMulti={true}
           searchable={true}
         />
-        <span className="hidden items-center sm:flex ">
-          <UserProfile user={{ name: "Rizon Kumar" }} />
-        </span>
+        <UserProfile user={{ name: "Rizon Kumar" }} />
       </div>
     </div>
   );

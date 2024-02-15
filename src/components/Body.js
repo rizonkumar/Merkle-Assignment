@@ -4,7 +4,7 @@ import GraphicalView from "./dashboard/GraphicalView";
 
 const Body = ({ currentView, selectedPokemonNames }) => {
   return (
-    <div className="p-3 md:p-8">
+    <div className="p-md-5 p-3">
       {currentView === "tabular" ? (
         <TabularView selectedPokemonNames={selectedPokemonNames} />
       ) : (

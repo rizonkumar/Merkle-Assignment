@@ -1,33 +1,29 @@
+import React from "react";
 import AbilityListTabularView from "../AbilityListTabularView";
+import "../../custom-styles.css";
 
 const TabularView = ({ selectedPokemonNames = [] }) => {
   if (selectedPokemonNames.length === 0) {
     return (
-      <h2 className="text-denstu-red p-4 text-center text-lg font-bold">
+      <h2 className="text-denstu-red py-4 text-center fw-bold">
         No Pokémon selected
       </h2>
     );
   }
 
   return (
-    <div className="p-4 text-center">
-      <h2 className="text-merkle-red-tint relative mb-4 text-center text-lg font-bold">
+    // Use Bootstrap padding and text alignment classes
+    <div className="py-4 text-center">
+      <h2 className="text-merkle-red-tint mb-4 text-center fw-bold">
         Pokémon Data
       </h2>
-      <div className="overflow-x-auto">
-        {" "}
-        <table className="w-full table-auto border-collapse border border-slate-400">
+      <div className="overflow-auto">
+        <table className="table table-responsive table-bordered">
           <thead>
-            <tr className="bg-gray-100">
-              <th className="text-denstu-teal border border-slate-300 p-2 font-bold">
-                Name
-              </th>
-              <th className="text-denstu-teal border border-slate-300 p-2 font-bold">
-                Abilities
-              </th>
-              <th className="text-denstu-teal border border-slate-300 p-2 font-bold">
-                Power
-              </th>
+            <tr className="bg-light">
+              <th className="text-denstu-teal p-2 fw-bold">Name</th>
+              <th className="text-denstu-teal p-2 fw-bold">Abilities</th>
+              <th className="text-denstu-teal p-2 fw-bold">Power</th>
             </tr>
           </thead>
           <tbody>
