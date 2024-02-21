@@ -1,26 +1,23 @@
 import React, { useState, useRef } from "react";
-import Select from "react-select";
+import Select, { components } from "react-select";
 import { HiOutlineSearch } from "react-icons/hi";
-import "../../custom-styles.css";
 
 const Dropdown = ({ items, onSelect, placeholder, isMulti, searchable }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const selectRef = useRef(null);
-  const [showSelect, setShowSelect] = useState(false);
 
   const handleChange = (selected) => {
     setSelectedOption(selected);
     onSelect(selected || []);
   };
 
-  const handleSearch = () => {
-    if (selectRef.current) {
-      selectRef.current.focus();
+  const MultiValue = (props) => {
+    if (selectedOption.length > 1 && props.index >= 1) {
+      return props.index === 1 ? (
+        <components.MultiValue {...props} children=".." />
+      ) : null;
     }
-  };
-
-  const toggleSelectVisibility = () => {
-    setShowSelect(!showSelect);
+    return <components.MultiValue {...props} />;
   };
 
   const customStyles = {
@@ -39,6 +36,21 @@ const Dropdown = ({ items, onSelect, placeholder, isMulti, searchable }) => {
       backgroundColor: isSelected ? "#243c5a" : isFocused ? "#41547D" : null,
       color: "black",
     }),
+    valueContainer: (provided) => ({
+      ...provided,
+      overflow: "hidden",
+    }),
+    multiValue: (styles) => ({
+      ...styles,
+      maxWidth: "100%",
+    }),
+    multiValueLabel: (styles) => ({
+      ...styles,
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      maxWidth: "100%",
+    }),
   };
 
   return (
@@ -47,7 +59,7 @@ const Dropdown = ({ items, onSelect, placeholder, isMulti, searchable }) => {
         <HiOutlineSearch
           className="h-6 w-6 text-white me-2"
           style={{ height: "24px", width: "24px", cursor: "pointer" }}
-          onClick={handleSearch}
+          onClick={() => selectRef.current.focus()}
         />
       </div>
       <div className="d-none d-lg-block">
@@ -60,6 +72,7 @@ const Dropdown = ({ items, onSelect, placeholder, isMulti, searchable }) => {
           isSearchable={searchable}
           placeholder={placeholder}
           styles={customStyles}
+          components={{ MultiValue }}
         />
       </div>
     </div>

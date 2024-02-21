@@ -1,24 +1,7 @@
-html,
-body,
-#root {
-    /* Ensure the root div is also styled */
-    height: 100%;
-    margin: 0;
-}
-
-.vh-100 {
-    min-height: 100vh;
-    /* Minimum height to be 100% of the viewport height */
-}
-
-.flex-grow-1 {
-    flex-grow: 1;
-    /* Will make the element grow to take up any available space */
-}
-
-.overflow-auto {
-    overflow: auto;
-    /* Adds scroll to the main content if the content exceeds the viewport height */
+.search-input {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .side-nav-collapsed {
