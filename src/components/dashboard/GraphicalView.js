@@ -15,7 +15,7 @@ const GraphicalView = ({ selectedPokemonNames = [] }) => {
       <h2 className="mb-4 w-full text-center text-lg font-bold text-merkle-red-tint">
         Pokémon Charts
       </h2>
-      <div className="w-full max-w-[45vw] sm:grid sm:grid-cols-2 sm:gap-4">
+      <div className="w-full max-w-[47vw] sm:grid sm:grid-cols-2 sm:gap-4">
         {selectedPokemonNames.map((pokemonName) => (
           <AbilityListGraphicalView
             key={pokemonName}

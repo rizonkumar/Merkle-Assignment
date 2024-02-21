@@ -12,7 +12,7 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
   }));
 
   return (
-    <div className="xs:block bg-merkle-blue fixed left-0 top-0 z-40 w-full flex-row items-center justify-between p-3 text-white sm:flex">
+    <div className="xs:block fixed left-0 top-0 z-40 w-full flex-row items-center justify-between bg-merkle-blue p-3 text-white sm:flex">
       <div className="flex items-center justify-between">
         {" "}
         <Bars3Icon
@@ -36,6 +36,8 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
           placeholder="Select Pokémon"
           isMulti={true}
           searchable={true}
+          height={20}
+          width={100}
         />
         <span className="hidden items-center sm:flex ">
           <UserProfile user={{ name: "Rizon Kumar" }} />

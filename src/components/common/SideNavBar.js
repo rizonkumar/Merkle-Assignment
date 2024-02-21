@@ -6,7 +6,7 @@ const SideNavBar = ({ isExpanded, setCurrentView }) => {
     <div
       className={` transition-all duration-300 ease-in-out ${
         isExpanded ? " pr-5" : " pr-2"
-      } bg-merkle-blue flex flex-col items-center text-white`}
+      } flex flex-col items-center bg-merkle-blue text-white`}
     >
       <div className="ml-2 mt-2 space-y-4 text-xs">
         <div
