@@ -1,6 +1,5 @@
 import React from "react";
 import AbilityListTabularView from "../AbilityListTabularView";
-// import "../../custom-styles.css";
 import "../../index.css";
 
 const TabularView = ({ selectedPokemonNames = [] }) => {

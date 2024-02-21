@@ -7,13 +7,22 @@ const AbilityListGraphicalView = ({ pokemonName }) => {
   if (!pokemon)
     return <p className="text-merkle-red-tint">Pokemon not found</p>;
 
+  const statsLabels = Object.keys(pokemon.power.stats);
+  const statsValues = Object.values(pokemon.power.stats);
+
   const powerData = {
-    labels: ["Power"],
+    labels: statsLabels,
     datasets: [
       {
-        label: pokemon.name,
-        data: [pokemon.power],
-        backgroundColor: ["#996DDF"],
+        label: `${pokemon.name} Stats`,
+        data: statsValues,
+        backgroundColor: [
+          "#439CA3",
+          "#5B19C4",
+          "#FFCE56",
+          "#FF6384",
+          "#36A2EB",
+        ],
         borderColor: ["#05051E"],
         borderWidth: 1,
       },
@@ -37,16 +46,12 @@ const AbilityListGraphicalView = ({ pokemonName }) => {
 
   return (
     <div className="mx-auto mb-4 px-2 px-sm-4" style={{ maxWidth: "32rem" }}>
-      {" "}
       <h2 className="mb-4 text-center text-xl fw-bold text-denstu-teal">
         {pokemon.name}
       </h2>
       <div className="d-flex flex-column align-items-center gap-4">
         <div className="w-100">
-          <Bar
-            data={powerData}
-            options={{ indexAxis: "y", maintainAspectRatio: true }}
-          />
+          <Bar data={powerData} options={{ maintainAspectRatio: true }} />
         </div>
         <div className="w-100">
           <Doughnut

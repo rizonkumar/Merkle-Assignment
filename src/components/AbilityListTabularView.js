@@ -26,7 +26,17 @@ const AbilityListTabularView = ({ pokemonName }) => {
           ))}
         </ul>
       </td>
-      <td className="border p-2 text-center">{pokemon.power}</td>
+      <td className="border p-2 text-center">
+        <strong>Total Power:</strong> {pokemon?.power?.total}
+        <br />
+        <ul className="list-unstyled mt-2">
+          {Object.entries(pokemon.power.stats).map(([key, value]) => (
+            <li key={key}>
+              {key.charAt(0).toUpperCase() + key.slice(1)}: {value}
+            </li>
+          ))}
+        </ul>
+      </td>
     </tr>
   );
 };
