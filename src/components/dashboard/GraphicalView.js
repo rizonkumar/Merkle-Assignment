@@ -5,7 +5,6 @@ import "../../custom-styles.css";
 const GraphicalView = ({ selectedPokemonNames = [] }) => {
   if (selectedPokemonNames.length === 0) {
     return (
-      // For custom colors, ensure you have the appropriate classes defined in your custom-styles.css
       <h2 className="text-denstu-red py-4 text-center text-lg fw-bold">
         No Pokémon selected
       </h2>

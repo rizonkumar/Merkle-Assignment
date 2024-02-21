@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Select from "react-select";
 import { HiOutlineSearch } from "react-icons/hi";
 import "../../custom-styles.css";
 
 const Dropdown = ({ items, onSelect, placeholder, isMulti, searchable }) => {
   const [selectedOption, setSelectedOption] = useState(null);
+  const selectRef = useRef(null);
+  const [showSelect, setShowSelect] = useState(false);
 
   const handleChange = (selected) => {
     setSelectedOption(selected);
@@ -12,10 +14,13 @@ const Dropdown = ({ items, onSelect, placeholder, isMulti, searchable }) => {
   };
 
   const handleSearch = () => {
-    const selectedValues = isMulti
-      ? selectedOption.map((option) => option.value)
-      : [selectedOption.value];
-    onSelect(selectedValues);
+    if (selectRef.current) {
+      selectRef.current.focus();
+    }
+  };
+
+  const toggleSelectVisibility = () => {
+    setShowSelect(!showSelect);
   };
 
   const customStyles = {
@@ -42,11 +47,12 @@ const Dropdown = ({ items, onSelect, placeholder, isMulti, searchable }) => {
         <HiOutlineSearch
           className="h-6 w-6 text-white me-2"
           style={{ height: "24px", width: "24px", cursor: "pointer" }}
-          onClick={handleSearch} // Trigger the search operation
+          onClick={handleSearch}
         />
       </div>
       <div className="d-none d-lg-block">
         <Select
+          ref={selectRef}
           value={selectedOption}
           onChange={handleChange}
           options={items}

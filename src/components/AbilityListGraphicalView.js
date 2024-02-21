@@ -13,13 +13,14 @@ const AbilityListGraphicalView = ({ pokemonName }) => {
       {
         label: pokemon.name,
         data: [pokemon.power],
-        backgroundColor: ["rgba(255, 99, 132, 0.2)"],
-        borderColor: ["rgba(255, 99, 132, 1)"],
+        backgroundColor: ["#996DDF"],
+        borderColor: ["#05051E"],
         borderWidth: 1,
       },
     ],
   };
 
+  const customColors = ["#439CA3", "#5B19C4", "#FFCE56"];
   const abilitiesData = {
     labels: pokemon.abilities,
     datasets: [
@@ -27,8 +28,7 @@ const AbilityListGraphicalView = ({ pokemonName }) => {
         label: "Abilities",
         data: pokemon.abilities.map(() => 1),
         backgroundColor: pokemon.abilities.map(
-          (_, index) =>
-            `hsl(${(index / pokemon.abilities.length) * 360}, 70%, 70%)`
+          (_, index) => customColors[index % customColors.length]
         ),
         hoverOffset: 4,
       },

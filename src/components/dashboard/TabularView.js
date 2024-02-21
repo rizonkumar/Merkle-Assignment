@@ -1,6 +1,7 @@
 import React from "react";
 import AbilityListTabularView from "../AbilityListTabularView";
-import "../../custom-styles.css";
+// import "../../custom-styles.css";
+import "../../index.css";
 
 const TabularView = ({ selectedPokemonNames = [] }) => {
   if (selectedPokemonNames.length === 0) {
@@ -12,7 +13,6 @@ const TabularView = ({ selectedPokemonNames = [] }) => {
   }
 
   return (
-    // Use Bootstrap padding and text alignment classes
     <div className="py-4 text-center">
       <h2 className="text-merkle-red-tint mb-4 text-center fw-bold">
         Pokémon Data

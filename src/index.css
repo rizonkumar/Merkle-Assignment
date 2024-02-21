@@ -1,3 +1,78 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.bg-merkle-blue {
+    background-color: #243c5a !important;
+}
+
+.text-merkle-blue {
+    color: #243c5a !important;
+}
+
+.bg-merkle-light-blue {
+    background-color: #41547D !important;
+}
+
+.text-merkle-light-blue {
+    color: #41547D !important;
+}
+
+.bg-merkle-red-tint {
+    background-color: #FF644C !important;
+}
+
+.text-merkle-red-tint {
+    color: #FF644C !important;
+}
+
+.bg-dentsu-teal {
+    background-color: #06757E !important;
+}
+
+.text-dentsu-teal {
+    color: #06757E !important;
+}
+
+.bg-red-tone {
+    background-color: #861217 !important;
+}
+
+.text-red-tone {
+    color: #861217 !important;
+}
+
+.bg-purple-tone-1 {
+    background-color: #350976 !important;
+}
+
+.text-purple-tone-1 {
+    color: #350976 !important;
+}
+
+.hover-text-merkle-hover:hover {
+    color: #41547D !important;
+}
+
+.bg-merkle-teal-lint-1 {
+    background-color: #439CA3 !important;
+}
+
+.text-merkle-teal-lint-1 {
+    color: #439CA3 !important;
+}
+
+.bg-dentsu-red {
+    background-color: #F23A1D !important;
+}
+
+.text-dentsu-red {
+    color: #F23A1D !important;
+}
+
+.main-content {
+    margin-top: 80px !important;
+    height: 441px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
