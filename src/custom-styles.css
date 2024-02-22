@@ -16,7 +16,7 @@
 }
 
 .icon-hover:hover {
-    color: #41547D;
+    color: #aac1f1;
 }
 
 .bg-merkle-blue {
@@ -89,9 +89,15 @@
 
 .main-content {
     margin-top: 80px !important;
-    height: 441px;
+    height: 551px;
     overflow: auto;
     overflow-x: hidden;
+}
+
+@media screen and (min-width: 992px) {
+.side-nav-expanded {
+        width: 153px !important;
+    }
 }
 
 .cursor-pointer {
