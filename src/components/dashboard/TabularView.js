@@ -5,9 +5,9 @@ import "../../index.css";
 const TabularView = ({ selectedPokemonNames = [] }) => {
   if (selectedPokemonNames.length === 0) {
     return (
-      <h2 className="text-denstu-red py-4 text-center fw-bold">
+      <h3 className="text-denstu-red py-4 text-center text-lg fw-bold">
         No Pokémon selected
-      </h2>
+      </h3>
     );
   }
 

@@ -1,3 +1,4 @@
+
 .search-input {
     max-width: 200px;
     overflow: hidden;
@@ -12,6 +13,10 @@
 .side-nav-expanded {
     transform: translateX(0);
     transition: transform 0.3s ease;
+}
+
+.icon-hover:hover {
+    color: #41547D;
 }
 
 .bg-merkle-blue {
