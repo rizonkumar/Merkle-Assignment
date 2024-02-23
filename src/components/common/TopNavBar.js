@@ -23,7 +23,7 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
         <img
           src={LOGO_URL}
           alt="Logo"
-          className="ms-7"
+          className="ms-7 logo-img"
           style={{ height: "48px", maxWidth: "120px" }}
         />
       </div>

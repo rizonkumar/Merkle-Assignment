@@ -14,7 +14,7 @@ const TableauView = () => {
     const initViz = () => {
       const url = chartType === "bar" ? tableauUrlBarChart : tableauUrlPieChart;
 
-      if (window.tableau && tableauVizRef.current) {
+      if (window?.tableau && tableauVizRef?.current) {
         const options = {
           width: "100%",
           height: "800px",
@@ -25,8 +25,8 @@ const TableauView = () => {
           },
         };
 
-        if (tableauVizRef.current.viz) {
-          tableauVizRef.current.viz.dispose();
+        if (tableauVizRef?.current?.viz) {
+          tableauVizRef?.current?.viz?.dispose();
         }
 
         tableauVizRef.current.viz = new window.tableau.Viz(

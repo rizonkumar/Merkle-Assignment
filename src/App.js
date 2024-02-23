@@ -28,14 +28,12 @@ const App = () => {
       />
       <div className="row">
         <div className="col-12 main-content">
-          <div className="row h-100">
+          <div className="row main-content-wrapper">
             <SideNavBar
               isExpanded={isSidebarExpanded}
               setCurrentView={setCurrentView}
             />
-            <div
-              className={`col-12 col-lg-2 flex-grow-1 transition-all ${isSidebarExpanded ? "ps-5" : "ps-2"}`}
-            >
+            <div className={`col-12 col-lg-2 flex-grow-1 transition-all p-0`}>
               <Body
                 currentView={currentView}
                 selectedPokemonNames={selectedPokemonNames}

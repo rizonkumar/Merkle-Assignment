@@ -42,7 +42,7 @@ const AbilityListGraphicalView = ({ pokemonName }) => {
         backgroundColor: pokemon.abilities.map(
           (_, index) =>
             doughnutChartBackgroundColors[
-              index % doughnutChartBackgroundColors.length
+              index % doughnutChartBackgroundColors?.length
             ]
         ),
         hoverOffset: 4,
