@@ -2,6 +2,7 @@ import React from "react";
 import Dropdown from "./Dropdown";
 import UserProfile from "./UserProfile";
 import { LOGO_URL } from "../../utils/constants";
+import LOGO from "../../assets/full-logo-lt.svg";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import mockPokemonData from "../../utils/mockData";
 import "../../custom-styles.css";
@@ -21,10 +22,15 @@ const TopNavBar = ({ toggleSidebar, onSelectView }) => {
           onClick={toggleSidebar}
         />
         <img
-          src={LOGO_URL}
+          src={LOGO}
           alt="Logo"
           className="ms-7 logo-img"
-          style={{ height: "48px", maxWidth: "120px" }}
+          style={{
+            height: "48px",
+            maxWidth: "120px",
+            background: "white",
+            padding: "10px",
+          }}
         />
       </div>
       <div className="col-4">

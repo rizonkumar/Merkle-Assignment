@@ -3,8 +3,8 @@ import "../../custom-styles.css";
 
 const Footer = () => {
   return (
-    <footer className="row bg-merkle-blue py-4 text-center text-white">
-      <div className="col-12">
+    <footer className="row py-2 text-center text-#12295D font-weight-bold ">
+      <div className="col-12 copyright-text footer-text">
         © {new Date().getFullYear()} Merkle | All rights reserved.
       </div>
     </footer>

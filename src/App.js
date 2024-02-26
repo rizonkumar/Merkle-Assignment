@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./utils/chartSetup";
 import TopNavBar from "./components/common/TopNavBar";
 import SideNavBar from "./components/common/SideNavBar";
@@ -11,6 +11,18 @@ const App = () => {
   const [currentView, setCurrentView] = useState("tabular");
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
   const [selectedPokemonNames, setSelectedPokemonNames] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isDesktopView = windowWidth > 768;
 
   const handleToggleSidebar = () => {
     setIsSidebarExpanded(!isSidebarExpanded);
@@ -26,8 +38,17 @@ const App = () => {
         toggleSidebar={handleToggleSidebar}
         onSelectView={handleSelectView}
       />
-      <div className="row">
-        <div className="col-12 main-content">
+      <div className="row main-row">
+        <div
+          className="col-12 main-content"
+          style={{
+            paddingLeft: isDesktopView
+              ? isSidebarExpanded
+                ? "250px"
+                : "50px"
+              : "0px",
+          }}
+        >
           <div className="row main-content-wrapper">
             <SideNavBar
               isExpanded={isSidebarExpanded}

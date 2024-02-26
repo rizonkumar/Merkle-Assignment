@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import mockPokemonData from "../utils/mockData";
 
 const AbilityListTabularView = ({ pokemonName }) => {
+  const [showDetails, setShowDetails] = useState(false);
   const pokemon = mockPokemonData.find(
     (pokemon) => pokemon.name === pokemonName
   );
@@ -16,6 +17,10 @@ const AbilityListTabularView = ({ pokemonName }) => {
     );
   }
 
+  const handleToggleDetails = () => {
+    setShowDetails(!showDetails);
+  };
+
   return (
     <tr className="table-hover">
       <td className="border p-2">{pokemon?.name}</td>
@@ -27,15 +32,27 @@ const AbilityListTabularView = ({ pokemonName }) => {
         </ul>
       </td>
       <td className="border p-2 text-center">
-        <strong>Total Power: </strong> {pokemon?.power?.total}
-        <br />
-        <ul className="list-unstyled mt-2">
-          {Object.entries(pokemon?.power?.stats).map(([key, value]) => (
-            <li key={key}>
-              {key.charAt(0).toUpperCase() + key.slice(1)}: {value}
-            </li>
-          ))}
-        </ul>
+        <strong onClick={handleToggleDetails} style={{ cursor: "pointer" }}>
+          Total Power: {pokemon?.power?.total}
+        </strong>
+        {showDetails && (
+          <ul className="list-unstyled mt-2">
+            {Object.entries(pokemon?.power?.stats)
+              .filter(
+                ([key]) =>
+                  key === "attack" ||
+                  key === "defense" ||
+                  key === "speed" ||
+                  key === "specialAttack" ||
+                  key === "specialDefense"
+              )
+              .map(([key, value]) => (
+                <li key={key}>
+                  {key.charAt(0).toUpperCase() + key.slice(1)}: {value}
+                </li>
+              ))}
+          </ul>
+        )}
       </td>
     </tr>
   );

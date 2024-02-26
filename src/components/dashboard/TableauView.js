@@ -48,7 +48,9 @@ const TableauView = () => {
 
   return (
     <div className="container mt-1">
-      <h2 className="text-center mb-4">Tableau Dashboard</h2>
+      <h2 className="text-center mb-4 text-merkle-red-tint">
+        Tableau Dashboard
+      </h2>
       <div className="text-center mb-3">
         <button
           className={`btn ${chartType === "bar" ? "btn-primary" : "btn-secondary"} me-2`}
